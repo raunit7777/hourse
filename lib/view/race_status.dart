@@ -29,7 +29,7 @@ class HorseRacingViewModel extends ChangeNotifier {
   // Test Mode: true = 15 Seconds, false = 6 Hours
   static const bool testMode = true;
   static const Duration _prodDuration = Duration(hours: 6);
-  static const Duration _testDuration = Duration(seconds: 15);
+  static const Duration _testDuration = Duration(seconds: 12);
 
   Duration get totalDuration => testMode ? _testDuration : _prodDuration;
 
@@ -53,6 +53,12 @@ class HorseRacingViewModel extends ChangeNotifier {
   ];
 
   final List<String> _horseGifs = [
+    'assets/HORSES/horse_no3_1mb.gif',
+    'assets/HORSES/horse_no3_1mb.gif',
+    'assets/HORSES/horse_no3_1mb.gif',
+    'assets/HORSES/horse_no3_1mb.gif',
+    'assets/HORSES/horse_no3_1mb.gif',
+    'assets/HORSES/horse_no3_1mb.gif',
     'assets/HORSES/horse_no3_1mb.gif',
     'assets/HORSES/horse_no3_1mb.gif',
     'assets/HORSES/horse_no3_1mb.gif',
