@@ -17,7 +17,7 @@ class HorseTokenWidget extends StatelessWidget {
     // Sirf Horse GIF render hoga, koi # number ya badge nahi aayega
     return Image.asset(
       gifPath,
-      height: 70, // Apne screen ke according size adjust kar sakte hain
+      height: 80, // Apne screen ke according size adjust kar sakte hain
       fit: BoxFit.contain,
       gaplessPlayback: true,
       errorBuilder: (_, __, ___) => const Icon(
