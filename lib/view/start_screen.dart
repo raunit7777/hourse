@@ -1105,7 +1105,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
   // =====================================================================
   Widget _buildTopHeader() {
     return SizedBox(
-      height: 38 * _s,
+      height: 28 * _s,
       child: Row(
         children: [
           Row(
@@ -1137,7 +1137,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
   Widget _topStatPill(String title, String val, {required double width}) {
     return Container(
       width: width,
-      height: 32 * _s,
+      height: 23* _s,
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.75),
         borderRadius: BorderRadius.circular(4 * _s),
@@ -1150,7 +1150,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
             title,
             style: TextStyle(
               color: const Color(0xFFE2B770),
-              fontSize: 7.5 * _s,
+              fontSize: 6 * _s,
               fontWeight: FontWeight.w900,
             ),
           ),
@@ -1158,7 +1158,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
             val,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 10 * _s,
+              fontSize: 7 * _s,
               fontWeight: FontWeight.w900,
             ),
           ),
@@ -1169,7 +1169,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
 
   Widget _pointsPill(String val) {
     return Container(
-      height: 32 * _s,
+      height: 26 * _s,
       padding: EdgeInsets.symmetric(horizontal: 8 * _s),
       decoration: BoxDecoration(
         color: Colors.black.withOpacity(0.75),
@@ -1189,14 +1189,14 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
                     "POINTS",
                     style: TextStyle(
                       color: const Color(0xFFE2B770),
-                      fontSize: 7.5 * _s,
+                      fontSize: 6 * _s,
                       fontWeight: FontWeight.w900,
                     ),
                   ),
                   SizedBox(width: 3 * _s),
                   Container(
-                    width: 10 * _s,
-                    height: 10 * _s,
+                    width: 7 * _s,
+                    height: 7 * _s,
                     decoration: const BoxDecoration(
                       color: Color(0xFF00C853),
                       shape: BoxShape.circle,
@@ -1209,7 +1209,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
                 val,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 10 * _s,
+                  fontSize: 7 * _s,
                   fontWeight: FontWeight.w900,
                 ),
               ),
@@ -1259,7 +1259,9 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
       const int rows = 2;
       final double gap = 4 * _s;
       final double cellW = (c.maxWidth - (gap * (cols - 1))) / cols;
-      final double cellH = (c.maxHeight - (gap * (rows - 1))) / rows;
+
+      // 🎯 cellH ko divide factor se kam kiya taaki ratio bada ho aur card ki height kam ho
+      final double cellH = ((c.maxHeight - (gap * (rows - 1))) / rows) * 0.80;
 
       return GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
@@ -1268,7 +1270,7 @@ class _HorseRacingScreenState extends State<HorseRacingScreen> {
           crossAxisCount: cols,
           crossAxisSpacing: gap,
           mainAxisSpacing: gap,
-          childAspectRatio: cellW / cellH,
+          childAspectRatio: cellW / cellH, // 👈 Aspect ratio increase ho gaya
         ),
         itemCount: horses.length,
         itemBuilder: (context, index) => _buildHorseCard(horses[index]),
